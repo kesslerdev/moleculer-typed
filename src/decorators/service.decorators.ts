@@ -13,11 +13,11 @@ export function Service(schema: Partial<ServiceSchema> = {}): ClassDecorator {
   }
 }
 
-export function SetSchema(path: string): MethodDecorator {
+export function SetSchema(path?: string): MethodDecorator {
   return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
     target.constructor.__schema = merge(
       target.constructor.__schema,
-      set({}, path, descriptor.value)
+      set({}, path || propertyKey, descriptor.value)
     )
   }
 }
