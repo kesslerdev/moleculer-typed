@@ -1,0 +1,27 @@
+{
+  "name": "moleculer-typed-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "upd": "(cd .. && npm run build ) && x=$(npm pack ../ | tail -1) && npm install $x && rm $x",
+    "dev": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js --hot --repl --config moleculer.config.ts services/*.service.ts",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jaeger-client": "^3.17.1",
+    "lodash": "^4.17.15",
+    "moleculer": "^0.14.0-rc2",
+    "moleculer-ts": "^2.0.5",
+    "moleculer-typed": "file:moleculer-typed-1.0.0.tgz",
+    "nats": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "moleculer-repl": "^0.6.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}

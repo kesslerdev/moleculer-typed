@@ -1,0 +1,24 @@
+{
+  "name": "@skimia/moleculer-typed",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "npm run build --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "moleculer": "^0.14.0-rc2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.7.0",
+    "typescript": "^3.7.5",
+    "moleculer": "^0.14.0-rc2"
+  }
+}
