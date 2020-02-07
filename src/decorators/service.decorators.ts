@@ -1,4 +1,5 @@
-import { ServiceSchema, ActionSchema } from 'moleculer';
+import { ServiceSchema } from 'moleculer';
+import { set } from 'lodash';
 import { merge } from './utils';
 
 export function Service(schema: Partial<ServiceSchema> = {}): ClassDecorator {
@@ -9,5 +10,14 @@ export function Service(schema: Partial<ServiceSchema> = {}): ClassDecorator {
     }, schema)
 
     return constructor
+  }
+}
+
+export function SetSchema(path: string): MethodDecorator {
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    target.constructor.__schema = merge(
+      target.constructor.__schema,
+      set({}, path, descriptor.value)
+    )
   }
 }

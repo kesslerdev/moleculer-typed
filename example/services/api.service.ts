@@ -3,12 +3,8 @@ import {
   Service,
   Action, BeforeActionHook, AfterActionHook, ErrorHook,
   Event,
-  Param
-} from 'moleculer-typed';
-
-import {
-  Action as ct,
-} from 'moleculer-typed';
+  SetSchema
+} from '@skimia/moleculer-typed';
 
 import { ServiceSettingSchema, Context } from 'moleculer';
 
@@ -25,7 +21,7 @@ class ApiService extends MoleculerService<Settings> {
   @Action({
     cache: true,
   })
-  public hello(@Param({ ddd: false }) test: string, @Param({ name: "ctx" }) ctx: Context) {
+  public hello(test: string, ctx: Context) {
     console.log("hello", this.test)
     return { res: true }
   }
@@ -62,6 +58,12 @@ class ApiService extends MoleculerService<Settings> {
   public async evt() {
     console.log("event");
   }
-}
 
+  @SetSchema("queues['city.load.geo']")
+  public async queue() {
+    console.log("queue");
+  }
+}
+// @ts-ignore
+console.log(ApiService.__schema)
 export default ApiService
