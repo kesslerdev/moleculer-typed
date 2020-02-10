@@ -1,7 +1,7 @@
-import { EventSchema } from 'moleculer';
+import { ServiceEvent } from 'moleculer';
 import { merge } from './utils';
 
-export function Event(schema?: EventSchema): MethodDecorator {
+export function Event(schema?: ServiceEvent): MethodDecorator {
   return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
     target.constructor.__schema = merge(
       target.constructor.__schema,
