@@ -13,7 +13,7 @@
   "dependencies": {
     "@skimia/moleculer-typed": "file:skimia-moleculer-typed-0.2.0.tgz",
     "jaeger-client": "^3.17.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moleculer": "^0.14.0-rc2",
     "moleculer-ts": "^2.0.5",
     "nats": "^1.4.0"
